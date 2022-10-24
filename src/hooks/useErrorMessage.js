@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-export const useErrorMessage = (name: string, label?: string) => {
-  const { errors } = useFormContext();
+export const useErrorMessage = (name, label) => {
+  const { formState: { errors } } = useFormContext();
 
   return useMemo(() => {
     const error = errors[name];

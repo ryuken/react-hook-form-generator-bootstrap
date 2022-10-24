@@ -1,86 +1,35 @@
 {
-  "version": "0.3.6",
-  "license": "MIT",
+  "version": "0.0.1",
+  "source": "src/index.js",
   "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
+  "module": "dist/index.esm.js",
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
-    "prepare": "tsdx build",
+    "start": "parcel watch",
+    "build": "parcel build",
+    "salaam": "npm run build && npm pack && mv react-hook-form-generator-bootstrap-0.0.1.tgz ../../salaamfd/salaam-certificates/react-hook-form-generator-bootstrap-0.0.1.tgz",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o docs"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "react-hook-form": "^6.14.1",
-    "@chakra-ui/core": "^0.7.0"
+    "bootstrap": "^4.6.2",
+    "react-hook-form": "^7.38.0",
+    "react-bootstrap": "^1.6.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
-  "homepage": "https://github.com/FionnCasey/react-hook-form-generator#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/FionnCasey/react-hook-form-generator.git"
-  },
-  "bugs": "https://github.com/FionnCasey/react-hook-form-generator/issues",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run format && npm run lint"
-    }
-  },
-  "keywords": [
-    "react",
-    "react-hook-form",
-    "form-generator",
-    "form-schema"
-  ],
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "react-hook-form-generator",
-  "author": "Fionn Casey",
-  "module": "dist/react-hook-form-generator.esm.js",
+  "name": "react-hook-form-generator-bootstrap",
+  "author": "Taushif Habiboellah",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@chakra-ui/core": "^0.8.0",
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-docs": "^5.3.18",
-    "@storybook/addon-info": "^5.3.18",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/react": "^5.3.18",
-    "@testing-library/jest-dom": "^5.5.0",
-    "@testing-library/react": "^10.0.4",
-    "@types/lodash.merge": "^4.6.6",
-    "@types/react": "^16.9.34",
-    "@types/react-dom": "^16.9.6",
-    "@types/react-select": "^3.0.12",
-    "babel-loader": "^8.1.0",
-    "emotion-theming": "^10.0.27",
-    "husky": "^4.2.5",
-    "react": "^16.13.1",
-    "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^16.13.1",
-    "react-hook-form": "^6.14.1",
-    "react-is": "^16.13.1",
-    "react-select": "^3.1.0",
-    "ts-loader": "^7.0.0",
-    "tsdx": "^0.14.1",
-    "tslib": "^1.11.1",
-    "typescript": "^3.8.3"
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-docs": "^6.5.12",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/addons": "^6.5.12",
+    "@storybook/react": "^6.5.12",
+    "parcel": "^2.7.0",
+    "raw-loader": "^4.0.2",
+    "react-hook-form": "^7.38.0",
+    "react-select": "^5.5.4"
   },
   "dependencies": {
     "lodash.merge": "^4.6.2"

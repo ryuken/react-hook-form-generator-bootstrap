@@ -1,0 +1,65 @@
+import React, { useMemo } from 'react'
+import { useFormContext } from 'react-hook-form'
+
+import { Form, FormGroup } from "react-bootstrap"
+
+import { useErrorMessage } from '../hooks/useErrorMessage'
+import { useStyles } from '../hooks/useStyles'
+
+export const CheckboxField = ({
+  id,
+  name,
+  field,
+  defaultValue,
+}) => {
+
+  const { label, helperText, required = false, shouldDisplay, styles = {} } = field
+
+  const { register, watch } = useFormContext()
+
+  const values = watch(name)
+
+  const fieldStyles = useStyles('checkboxField', styles)
+
+  const errorMessage = useErrorMessage(name, label)
+
+  const isVisible = useMemo(() => {
+    return shouldDisplay ? shouldDisplay(values) : true
+  }, [values, shouldDisplay])
+
+  return isVisible ? (
+    <Form.Group
+      key={id}
+      controlId={id}
+      {...fieldStyles.control}
+    >
+      {!!label && (
+        <Form.Label {...fieldStyles.label}>
+          {label}
+        </Form.Label>
+      )}
+      
+      <div>
+        {field.options.map(option => (
+          <Form.Check 
+            type="checkbox"
+            name={name}
+            {...register(name)}
+            id={name + '-' + option.label}
+            label={option.label}
+            value={option.value}
+          />
+        ))}
+      </div>
+
+      {!!helperText && (
+        <Form.Text {...fieldStyles.helperText}>
+          {helperText}
+        </Form.Text>
+      )}
+      <Form.Control.Feedback type="invalid" {...fieldStyles.errorMessage}>
+        {errorMessage}
+      </Form.Control.Feedback>
+    </Form.Group>
+  ) : null
+}

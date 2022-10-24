@@ -1,18 +1,16 @@
 import { useMemo, createContext, useContext } from 'react';
 
-import { FormStyles, FieldStyles } from '../types';
+export const StyleCtx = createContext({});
 
-export const StyleCtx = createContext({} as FormStyles);
-
-export const useStyles = <T extends FieldStyles>(
-  type: keyof FormStyles,
-  inlineStyles?: T
-): T => {
+export const useStyles = (
+  type,
+  inlineStyles
+) => {
   const baseStyles = useContext(StyleCtx);
 
   return useMemo(() => {
     return !!inlineStyles
       ? { ...baseStyles[type], ...inlineStyles }
-      : (baseStyles[type] as T);
+      : (baseStyles[type]);
   }, [type, baseStyles, inlineStyles]);
 };

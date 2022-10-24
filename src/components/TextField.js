@@ -1,21 +1,12 @@
-import React, { FC, useMemo } from 'react';
-import { useFormContext } from 'react-hook-form';
-import {
-  FormControl,
-  FormLabel,
-  InputGroup,
-  InputLeftAddon,
-  Input,
-  InputRightAddon,
-  FormHelperText,
-  FormErrorMessage,
-} from '@chakra-ui/core';
+import React, { useMemo } from 'react'
+import { useFormContext } from 'react-hook-form'
 
-import { FieldProps, FieldStyles, TextFieldSchema } from '../types';
+import { Form, FormGroup, FormControl } from "react-bootstrap"
+
 import { useErrorMessage } from '../hooks/useErrorMessage';
 import { useStyles } from '../hooks/useStyles';
 
-export const TextField: FC<FieldProps<TextFieldSchema>> = ({
+export const TextField = ({
   id,
   name,
   field,
@@ -26,37 +17,37 @@ export const TextField: FC<FieldProps<TextFieldSchema>> = ({
     placeholder,
     htmlInputType,
     helperText,
-    isRequired,
+    required = false,
     leftInputAddon,
     rightInputAddon,
     shouldDisplay,
     styles = {},
   } = field;
 
-  const fieldStyles = useStyles<FieldStyles>('textField', styles);
+  const fieldStyles = useStyles('textField', styles)
 
-  const { register, watch } = useFormContext();
+  const { register, watch } = useFormContext()
 
-  const errorMessage = useErrorMessage(name, label);
+  const errorMessage = useErrorMessage(name, label)
 
-  const values = watch(name);
+  const values = watch(name)
 
   const isVisible = useMemo(() => {
-    return shouldDisplay ? shouldDisplay(values) : true;
-  }, [values, shouldDisplay]);
+    return shouldDisplay ? shouldDisplay(values) : true
+  }, [values, shouldDisplay])
 
   return isVisible ? (
-    <FormControl
-      isRequired={isRequired}
-      isInvalid={!!errorMessage}
+    <Form.Group
+      key={id}
+      controlId={id}
       {...fieldStyles.control}
     >
       {!!label && (
-        <FormLabel htmlFor={name} {...fieldStyles.label}>
+        <Form.Label {...fieldStyles.label}>
           {label}
-        </FormLabel>
+        </Form.Label>
       )}
-      {!!leftInputAddon || rightInputAddon ? (
+      {/* {!!leftInputAddon || rightInputAddon ? (
         <InputGroup {...fieldStyles.inputGroup}>
           {!!leftInputAddon && <InputLeftAddon {...leftInputAddon} />}
           <Input
@@ -71,26 +62,26 @@ export const TextField: FC<FieldProps<TextFieldSchema>> = ({
           />
           {!!rightInputAddon && <InputRightAddon {...rightInputAddon} />}
         </InputGroup>
-      ) : (
-        <Input
-          data-testid={id}
+      ) : ( */}
+        <FormControl
           type={htmlInputType || 'text'}
           name={name}
           aria-label={name}
-          ref={register()}
+          {...register(name)}
+          required={required}
           placeholder={placeholder}
           defaultValue={defaultValue || ''}
           {...fieldStyles.input}
         />
-      )}
+      {/* )} */}
       {!!helperText && (
-        <FormHelperText {...fieldStyles.helperText}>
+        <Form.Text {...fieldStyles.helperText}>
           {helperText}
-        </FormHelperText>
+        </Form.Text>
       )}
-      <FormErrorMessage {...fieldStyles.errorMessage}>
+      <Form.Control.Feedback type="invalid" {...fieldStyles.errorMessage}>
         {errorMessage}
-      </FormErrorMessage>
-    </FormControl>
+      </Form.Control.Feedback>
+    </Form.Group>
   ) : null;
 };
