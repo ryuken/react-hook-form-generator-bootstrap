@@ -40,8 +40,9 @@ export const RadioField = ({
       )}
       
       <div>
-        {field.options.map(option => (
+        {field.options.map((option, i) => (
           <Form.Check 
+            key={i}
             type="radio"
             name={name}
             {...register(name)}

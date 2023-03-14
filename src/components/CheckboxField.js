@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
 
-import { Form, FormGroup } from "react-bootstrap"
+import { Form } from "react-bootstrap"
 
 import { useErrorMessage } from '../hooks/useErrorMessage'
 import { useStyles } from '../hooks/useStyles'
@@ -40,8 +40,9 @@ export const CheckboxField = ({
       )}
       
       <div>
-        {field.options.map(option => (
+        {field.options.map((option, i) => (
           <Form.Check 
+            key={i}
             type="checkbox"
             name={name}
             {...register(name)}

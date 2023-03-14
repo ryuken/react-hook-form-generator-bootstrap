@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
 
-import { Form, FormGroup, FormControl } from "react-bootstrap"
+import { Form, FormControl } from "react-bootstrap"
 
 import { useErrorMessage } from '../hooks/useErrorMessage'
 import { useStyles } from '../hooks/useStyles'
 
-export const TextField = ({
+export const UploadField = ({
   id,
   name,
   field,
@@ -15,16 +15,14 @@ export const TextField = ({
   const {
     label,
     placeholder,
-    htmlInputType,
     helperText,
     required = false,
-    leftInputAddon,
-    rightInputAddon,
+    accept = "*",
     shouldDisplay,
     styles = {},
-  } = field;
+  } = field
 
-  const fieldStyles = useStyles('textField', styles)
+  const fieldStyles = useStyles('uploadField', styles)
 
   const { register, watch } = useFormContext()
 
@@ -47,24 +45,9 @@ export const TextField = ({
           {label}
         </Form.Label>
       )}
-      {/* {!!leftInputAddon || rightInputAddon ? (
-        <InputGroup {...fieldStyles.inputGroup}>
-          {!!leftInputAddon && <InputLeftAddon {...leftInputAddon} />}
-          <Input
-            data-testid={id}
-            type={htmlInputType || 'text'}
-            name={name}
-            aria-label={name}
-            ref={register()}
-            placeholder={placeholder}
-            defaultValue={defaultValue || ''}
-            {...fieldStyles.input}
-          />
-          {!!rightInputAddon && <InputRightAddon {...rightInputAddon} />}
-        </InputGroup>
-      ) : ( */}
         <FormControl
-          type={htmlInputType || 'text'}
+          type="file"
+          accept={accept}
           name={name}
           aria-label={name}
           {...register(name)}
@@ -73,7 +56,6 @@ export const TextField = ({
           defaultValue={defaultValue || ''}
           {...fieldStyles.input}
         />
-      {/* )} */}
       {!!helperText && (
         <Form.Text {...fieldStyles.helperText}>
           {helperText}
@@ -83,5 +65,5 @@ export const TextField = ({
         {errorMessage}
       </Form.Control.Feedback>
     </Form.Group>
-  ) : null;
-};
+  ) : null
+}
