@@ -13,7 +13,7 @@
   "peerDependencies": {
     "bootstrap": "^5.x",
     "react": "18.x",
-    "react-bootstrap": "^1.6.6",
+    "react-bootstrap": "^2.x",
     "react-dom": "18.x",
     "react-hook-form": "7.x"
   },
