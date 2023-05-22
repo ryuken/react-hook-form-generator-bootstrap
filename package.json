@@ -3,6 +3,15 @@
   "source": "src/index.js",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
+  "isLibrary": true,
+  "targets": {
+    "main": {
+      "includeNodeModules": {
+        "react": false,
+        "react-dom": false
+      }
+    }
+  },
   "scripts": {
     "start": "parcel watch",
     "build": "parcel build",

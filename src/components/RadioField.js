@@ -16,12 +16,10 @@ export const RadioField = ({
   const { label, helperText, required = false, shouldDisplay, styles = {} } = field
 
   const { register, watch } = useFormContext()
+  const fieldStyles = useStyles('radioField', styles)
+  const errorMessage = useErrorMessage(name, label)
 
   const values = watch(name)
-
-  const fieldStyles = useStyles('radioField', styles)
-
-  const errorMessage = useErrorMessage(name, label)
 
   const isVisible = useMemo(() => {
     return shouldDisplay ? shouldDisplay(values) : true
@@ -31,6 +29,7 @@ export const RadioField = ({
     <FormGroup
       key={id}
       controlId={id}
+      className="mb-3"
       {...fieldStyles.control}
     >
       {!!label && (

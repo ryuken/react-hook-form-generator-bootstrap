@@ -31,6 +31,7 @@ export const SelectField = ({
     <FormGroup
       key={id}
       controlId={id}
+      className="mb-3"
       {...fieldStyles.control}
     >
       {!!label && (
@@ -40,6 +41,7 @@ export const SelectField = ({
       )}
       <FormControl
         as="select"
+        id={id}
         name={name}
         {...register(name)}
         required={required}

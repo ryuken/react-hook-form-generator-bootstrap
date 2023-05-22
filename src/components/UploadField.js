@@ -38,6 +38,7 @@ export const UploadField = ({
     <Form.Group
       key={id}
       controlId={id}
+      className="mb-3"
       {...fieldStyles.control}
     >
       {!!label && (

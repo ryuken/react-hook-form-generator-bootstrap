@@ -83,6 +83,7 @@ const $95304b84731920b5$export$2c73285ae9390cec = ({ id: id , name: name , field
     ]);
     return isVisible ? /*#__PURE__*/ (0, $5OpyM$jsxs)((0, $5OpyM$Form).Group, {
         controlId: id,
+        className: "mb-3",
         ...fieldStyles.control,
         children: [
             !!label && /*#__PURE__*/ (0, $5OpyM$jsx)((0, $5OpyM$Form).Label, {
@@ -91,6 +92,7 @@ const $95304b84731920b5$export$2c73285ae9390cec = ({ id: id , name: name , field
             }),
             /*#__PURE__*/ (0, $5OpyM$jsx)((0, $5OpyM$FormControl), {
                 type: htmlInputType || "text",
+                id: id,
                 name: name,
                 "aria-label": name,
                 ...register(name),
@@ -133,6 +135,7 @@ const $30e0535b6e8bca33$export$d55b50a564d0b931 = ({ id: id , name: name , field
     ]);
     return isVisible ? /*#__PURE__*/ (0, $5OpyM$jsxs)((0, $5OpyM$FormGroup), {
         controlId: id,
+        className: "mb-3",
         ...fieldStyles.control,
         children: [
             !!label && /*#__PURE__*/ (0, $5OpyM$jsx)((0, $5OpyM$Form).Label, {
@@ -141,6 +144,7 @@ const $30e0535b6e8bca33$export$d55b50a564d0b931 = ({ id: id , name: name , field
             }),
             /*#__PURE__*/ (0, $5OpyM$jsx)((0, $5OpyM$FormControl), {
                 as: "select",
+                id: id,
                 name: name,
                 ...register(name),
                 required: required,
@@ -175,9 +179,9 @@ const $30e0535b6e8bca33$export$d55b50a564d0b931 = ({ id: id , name: name , field
 const $a993ec74a110bb02$export$4aaf0c609b3e241e = ({ id: id , name: name , field: field , defaultValue: defaultValue  })=>{
     const { label: label , helperText: helperText , required: required = false , shouldDisplay: shouldDisplay , styles: styles = {}  } = field;
     const { register: register , watch: watch  } = (0, $5OpyM$useFormContext)();
-    const values = watch(name);
     const fieldStyles = (0, $f2390fd326a84207$export$28e6b9b82ee883c)("radioField", styles);
     const errorMessage = (0, $5ecf9791ef05430d$export$23759efdd2d2dae9)(name, label);
+    const values = watch(name);
     const isVisible = (0, $5OpyM$useMemo)(()=>{
         return shouldDisplay ? shouldDisplay(values) : true;
     }, [
@@ -186,6 +190,7 @@ const $a993ec74a110bb02$export$4aaf0c609b3e241e = ({ id: id , name: name , field
     ]);
     return isVisible ? /*#__PURE__*/ (0, $5OpyM$jsxs)((0, $5OpyM$FormGroup), {
         controlId: id,
+        className: "mb-3",
         ...fieldStyles.control,
         children: [
             !!label && /*#__PURE__*/ (0, $5OpyM$jsx)((0, $5OpyM$Form).Label, {
@@ -286,6 +291,7 @@ const $76750a5caa632806$export$d61c19f03375c53e = ({ id: id , name: name , field
     ]);
     return isVisible ? /*#__PURE__*/ (0, $5OpyM$jsxs)((0, $5OpyM$Form).Group, {
         controlId: id,
+        className: "mb-3",
         ...fieldStyles.control,
         children: [
             !!label && /*#__PURE__*/ (0, $5OpyM$jsx)((0, $5OpyM$Form).Label, {
@@ -343,6 +349,7 @@ const $b1b7fb03d2536bf6$export$737a6469d99de160 = ({ id: id , name: name , field
     const clear = ()=>ref.current.clear();
     return isVisible ? /*#__PURE__*/ (0, $5OpyM$jsxs)((0, $5OpyM$Form).Group, {
         controlId: id,
+        className: "mb-3",
         ...fieldStyles.control,
         children: [
             !!label && /*#__PURE__*/ (0, $5OpyM$jsx)((0, $5OpyM$Form).Label, {

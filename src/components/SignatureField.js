@@ -1,7 +1,7 @@
 import React, { useMemo, useRef } from 'react'
 import { useFormContext } from 'react-hook-form'
 
-import { Form, Row, Col, Button } from "react-bootstrap"
+import { Form } from "react-bootstrap"
 import SignaturePad from 'react-signature-canvas'
 
 import { useErrorMessage } from '../hooks/useErrorMessage'
@@ -24,11 +24,8 @@ export const SignatureField = ({
   } = field;
 
   const ref = useRef(0)
-
   const fieldStyles = useStyles('signatureField', styles)
-
   const { setValue, watch } = useFormContext()
-
   const errorMessage = useErrorMessage(name, label)
 
   const values = watch(name)
@@ -47,6 +44,7 @@ export const SignatureField = ({
     <Form.Group
       key={id}
       controlId={id}
+      className="mb-3"
       {...fieldStyles.control}
     >
       {!!label && (

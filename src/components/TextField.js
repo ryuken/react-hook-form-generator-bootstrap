@@ -40,6 +40,7 @@ export const TextField = ({
     <Form.Group
       key={id}
       controlId={id}
+      className="mb-3"
       {...fieldStyles.control}
     >
       {!!label && (
@@ -65,6 +66,7 @@ export const TextField = ({
       ) : ( */}
         <FormControl
           type={htmlInputType || 'text'}
+          id={id}
           name={name}
           aria-label={name}
           {...register(name)}
