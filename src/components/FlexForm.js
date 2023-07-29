@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
-import merge from 'lodash.merge'
+import React, { useMemo } from "react"
+import { useForm, FormProvider } from "react-hook-form"
+import merge from "lodash.merge"
 
-import { StyleCtx } from '../hooks/useStyles'
-import { renderField } from './Factory'
+import { StyleCtx } from "../hooks/useStyles"
+import { renderField } from "./Factory"
 
 const defaultStyles = {}
 
@@ -22,8 +22,8 @@ export const FlexForm = (props) => {
 
     let elements = children instanceof Array ? children.reduce((acc, item) => {
 
-        if("function" ===  typeof item) {
-          item = item(formElements)
+        if ("function" ===  typeof item) {
+            item = item(formElements)
         }
     
         acc.push(item)
@@ -32,11 +32,11 @@ export const FlexForm = (props) => {
     
     }, []) : children(formElements)
 
-    const form = useForm(formOptions);
+    const form = useForm(formOptions)
 
     const baseStyles = useMemo(() => {
-        return overwriteDefaultStyles ? styles : merge(defaultStyles, styles);
-    }, [styles, overwriteDefaultStyles])
+        return overwriteDefaultStyles ? styles : merge(defaultStyles, styles)
+    }, [ styles, overwriteDefaultStyles ])
 
     return (
         <StyleCtx.Provider value={baseStyles}>

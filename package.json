@@ -15,9 +15,9 @@
   "scripts": {
     "start": "parcel watch",
     "build": "parcel build",
-    "salaam": "npm run build && npm pack && mv react-hook-form-generator-bootstrap-0.0.1.tgz ../../salaamfd/salaam-certificates/react-hook-form-generator-bootstrap-0.0.1.tgz",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -c .storybook -o docs"
+    "salaam": "npm run build && npm pack && mv react-hook-form-generator-bootstrap-0.0.1.tgz ../../../salaamfd/donations-dashboard/react-hook-form-generator-bootstrap-0.0.1.tgz",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "bootstrap": "^5.x",
@@ -29,18 +29,44 @@
   "name": "react-hook-form-generator-bootstrap",
   "author": "Taushif Habiboellah",
   "devDependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/eslint-parser": "^7.21.8",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
     "@storybook/addon-actions": "^7.0.11",
     "@storybook/addon-docs": "^7.0.11",
+    "@storybook/addon-essentials": "^7.1.1",
     "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-interactions": "^7.1.1",
     "@storybook/addon-links": "^7.0.11",
+    "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/addons": "^7.0.11",
+    "@storybook/blocks": "^7.1.1",
     "@storybook/react": "^7.0.11",
+    "@storybook/react-webpack5": "^7.1.1",
+    "@storybook/testing-library": "^0.2.0",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-storybook": "^0.6.13",
     "parcel": "^2.8.3",
+    "prettier": "^2.8.8",
+    "prop-types": "^15.8.1",
     "raw-loader": "^4.0.2",
-    "react-select": "^5.7.3"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-select": "^5.7.3",
+    "storybook": "^7.1.1"
   },
   "dependencies": {
     "lodash.merge": "^4.6.2",
     "react-signature-canvas": "^1.0.6"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }

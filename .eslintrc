@@ -1,0 +1,56 @@
+{
+    "parser": "@babel/eslint-parser",
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended"
+    ],
+    "plugins": ["react", "jsx-a11y"],
+    "rules": {
+        "react/prop-types": 0,
+        "indent": ["error", 4, { "SwitchCase": 1, "MemberExpression": 1, "ArrayExpression": 1, "ObjectExpression": 1, "ImportDeclaration": 1 }],
+        "semi": ["error", "never"],
+        "linebreak-style": 1,
+        "curly": ["error", "multi-line", "consistent"],
+        "brace-style": ["error", "stroustrup"],
+        "space-before-blocks": ["error", "always"],
+        "array-bracket-spacing": ["error", "always", { "objectsInArrays": false }],
+        "keyword-spacing": ["error", { "before": true, "after": true }],
+        "quotes": ["error", "double"],
+        "object-curly-newline": ["error", {
+            "ObjectExpression": { "multiline": true },
+            "ObjectPattern": { "multiline": true }
+        }],
+        "object-curly-spacing": ["error", "always"],
+        "jsx-a11y/anchor-is-valid": [ "error", {
+            "components": [ "Link" ],
+            "specialLink": [ "hrefLeft", "hrefRight" ],
+            "aspects": [ "invalidHref", "preferButton" ]
+        }],
+        "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
+    },
+    "globals": {
+        "process": true,
+        "global": true,
+        "fetch": true,
+        "document": true,
+        "window": true,
+        "alert": true,
+        "confirm": true,
+        "FormData": true,
+        "require": true,
+        "Promise": true,
+        "Intl": true,
+        "setInterval": true,
+        "clearInterval": true,
+        "setTimeout": true,
+        "clearTimeout": true,
+        "FileList": true,
+        "XMLHttpRequest": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}
