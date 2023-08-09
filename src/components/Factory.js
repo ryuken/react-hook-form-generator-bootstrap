@@ -1,3 +1,6 @@
+import React from "react"
+
+import { GridField } from "./GridField"
 import { TitleField } from "./TitleField"
 import { TextField } from "./TextField"
 import { SelectField } from "./SelectField"
@@ -8,10 +11,23 @@ import { SignatureField } from "./SignatureField"
 
 export const renderField = ([ name, field ]) => {
   
+    const { shouldDisplay } = field
+
+    // check if useMemo works
+    const isVisible = shouldDisplay ? shouldDisplay() : true
+
+    if (isVisible === false) {
+        return null
+    }
+
     let Component = null
    
     switch (field.type) {
   
+        case "grid":
+            Component = GridField
+            break
+
         case "title":
             Component = TitleField
             break
@@ -50,6 +66,8 @@ export const renderField = ([ name, field ]) => {
             key={name}
             name={name}
             field={field}
+            schema={field.schema}
+            renderField={renderField}
             {...field.props}
         />
     )

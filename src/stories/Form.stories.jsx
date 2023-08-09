@@ -182,6 +182,42 @@ export const Upload = {
     )
 }
 
+export const Grid = {
+    render: () => (
+        <Form
+            title="Grid"
+            schema={{
+                title: {
+                    type: "title",
+                    label: "Profile"
+                },
+                naw: {
+                    type: "grid",
+                    schema: [
+                        {
+                            firstName: {
+                                type: "text",
+                                label: "First name",
+                            },
+                        },
+                        {
+                            surname: {
+                                type: "text",
+                                label: "Surname"
+                            }
+                        }
+                    ],
+                },
+                image: {
+                    type: "upload",
+                    label: "Profile picture"
+                }
+            }}
+            handleSubmit={action("Submit")}
+        />
+    )
+}
+
 const meta = { component: () => Form, }
 
 export default meta
